@@ -25,15 +25,9 @@ class PointsForMeters:
 class TotalPoints(PointsForPlace, PointsForMeters):
     points = 0
 
-    def get_points_for_place(self, place):
-        return PointsForPlace.get_points_for_place(self, place)
-
-    def get_points_for_meters(self, meters):
-        return PointsForMeters.get_points_for_meters(self, meters)
-
     def get_total_points(self, place, meters):
-        total = TotalPoints.get_points_for_place(
-            self, place) + TotalPoints.get_points_for_meters(self, meters)
+        total = self.get_points_for_place(
+            place) + self.get_points_for_meters(meters)
         return total
 
 
